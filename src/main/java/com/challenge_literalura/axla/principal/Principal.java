@@ -38,28 +38,21 @@ public class Principal {
                     0 - Salir
                     Elige una opcion:
                     """);
-            opcion = Integer.parseInt(teclado.nextLine());
-            switch (opcion) {
-                case 1:
-                    buscarLibroPorTitulo();
-                    break;
-                case 2:
-                    guardarLibro();
-                    break;
-                case 3:
-                    mostrarLibros();
-                    break;
-                case 4:
-                    mostrarTop10();
-                    break;
-                case 5:
-                    mostrarEstadisticas();
-                    break;
-                case 0:
-                    System.out.println("Saliendo...");
-                    break;
-                default:
-                    System.out.println("Opción inválida");
+            try {
+                opcion = Integer.parseInt(teclado.nextLine());
+
+                switch (opcion) {
+                    case 1 -> buscarLibroPorTitulo();
+                    case 2 -> mostrarTop10();
+                    case 3 -> guardarLibro();
+                    case 4 -> mostrarLibros();
+                    case 5 -> mostrarEstadisticas();
+                    case 0 -> System.out.println("Hasta pronto.");
+                    default -> System.out.println("Opción inválida, elige un número entre 0 y 5.");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, escribe solo números.");
             }
         }
     }
